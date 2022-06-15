@@ -51,16 +51,40 @@ class CohortManager {
     return 'error'
   }
 
-  addStudent(cohortName, firstName, lastName, gitHub, email) {}
+  addStudent(cohortName, firstName, lastName, gitHub, email) {
+    if (
+      cohortName != null &&
+      firstName != null &&
+      lastName != null &&
+      gitHub != null &&
+      email != null
+    ) {
+      const cohort = this.getCohort(cohortName)
+      cohort.addStudent(firstName, lastName, gitHub, email)
+      return cohort
+    }
+    return 'error'
+  }
+
+  removeStudent(studentId, cohortName) {
+    const cohort = this.getCohort(cohortName)
+    if (cohort !== 'error') {
+      cohort.removeStudent(studentId)
+      return cohort
+    }
+    return 'error'
+  }
 }
 
-const cohortManager = new CohortManager()
+// const cohortManager = new CohortManager()
 
-console.log(cohortManager.createCohort('22'))
-console.log(cohortManager.createCohort('23'))
-console.log(cohortManager.createCohort('24'))
-console.log(cohortManager.getCohort('22'))
-// console.log(cohortManager.removeCohort('22'))
+// console.log(cohortManager.createCohort('22'))
+// console.log(cohortManager.addStudent('22', 'bob','bob','@gog','bob@gog.bom'))
+// console.log(cohortManager.addStudent('22', 'bsdfob','bob','@gog','bob@gog.bom'))
+// console.log(cohortManager.removeStudent(2, '22'))
+// console.log(cohortManager.createCohort('23'))
+// console.log(cohortManager.createCohort('24'))
+// console.log(cohortManager.getCohort('22'))
 // console.log('all names', cohortManager.getAllCohortNames())
 // console.log('cohorts', cohortManager.cohorts)
 

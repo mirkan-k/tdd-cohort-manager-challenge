@@ -1,5 +1,5 @@
 //
-let id = 0
+let id = 1
 
 class Student {
   constructor(firstName, lastName, gitHub, email) {

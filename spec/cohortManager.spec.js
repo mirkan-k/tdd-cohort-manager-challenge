@@ -7,7 +7,7 @@ describe('CohortManager', () => {
   let id
   beforeEach(() => {
     cohortManager = new CohortManager()
-    id = 0
+    id = 1
   })
 
   it('can create a cohort with a cohort name', () => {
